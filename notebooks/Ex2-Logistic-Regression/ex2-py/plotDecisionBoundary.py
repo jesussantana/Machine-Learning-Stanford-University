@@ -8,6 +8,7 @@ def plotDecisionBoundary(theta, X, y, xlabel='', ylabel='', legends=[]):
 
     pos = y[:, 0] == 1
     neg = y[:, 0] == 0
+    
     plt.scatter(X[pos, 0], X[pos, 1], c='k', marker='+',
                 label=legends[0])
     plt.scatter(X[neg, 0], X[neg, 1], c='y', marker='o',
@@ -28,7 +29,7 @@ def plotDecisionBoundary(theta, X, y, xlabel='', ylabel='', legends=[]):
         for i in range(u.size):
 
             for j in range(v.size):
-                
+
                 z[i, j] = mapFeature(np.array(u[i]).reshape((1, 1)),
                                      np.array(v[j]).reshape((1, 1))).dot(theta)
         plt.contour(u, v, z.T, levels=[0.0], label=legends[2])
