@@ -49,7 +49,21 @@ X = [ones(m, 1) X];
 %                 initial_theta, options);
 %
 
+for c = 1:num_labels  
 
+        all_theta(c,:) = fmincg (@(t)(lrCostFunction(t, X, (y == c), lambda)), initial_theta, options);
+
+        % remember y (5000*1) is an array of labels i.e. it contains actual 
+        % digit names (y==c) will return a vector with values 0 or 1. 1 at places where y==c 
+        
+        % 't' is passed as dummy parameter which is initialized with 'initial_theta' first
+        % then subsequent values are choosen by fmincg [Note: Its not a builtin function like fminunc
+        
+        % fmincg will consider all training data having label c (1-10 note
+        % 0 is mapped to 10) and find the optimal theta vector for it (Classifying white pixels with gray pixels). same
+        % process is repeated for other classes
+        
+    end
 
 
 
