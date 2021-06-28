@@ -6,6 +6,7 @@ from lrCostFunction import lrCostFunction
 
 
 def oneVsAll(X, y, num_labels, lamda):
+    
     m, n = X.shape
     all_theta = np.zeros((num_labels, n + 1))
     X = np.hstack((np.ones((m, 1)), X))
